@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Story</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .story-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .choices {
+            margin-top: 20px;
+        }
+        .choices button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .choices button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="story-container">
+        <h1>The Adventure Begins</h1>
+        <p>You find yourself at the edge of a dark forest. Do you dare to enter?</p>
+        
+        <div class="choices">
+            <button onclick="choosePath('forest')">Enter the Forest</button>
+            <button onclick="choosePath('village')">Go Back to the Village</button>
+        </div>
+    </div>
+
+    <script>
+        function choosePath(path) {
+            if (path === 'forest') {
+                document.querySelector('.story-container').innerHTML = `
+                    <h1>Into the Forest</h1>
+                    <p>The trees tower above you as you step into the shadowy woods. You hear a rustle in the bushes.</p>
+                    <div class="choices">
+                        <button onclick="choosePath('investigate')">Investigate the Sound</button>
+                        <button onclick="choosePath('keepWalking')">Keep Walking</button>
+                    </div>
+                `;
+            } else if (path === 'village') {
+                document.querySelector('.story-container').innerHTML = `
+                    <h1>Return to the Village</h1>
+                    <p>You decide it's safer to return to the village. As you walk back, you notice something strange...</p>
+                    <div class="choices">
+                        <button onclick="choosePath('strangeObject')">Investigate the Object</button>
+                        <button onclick="choosePath('ignoreObject')">Ignore It and Keep Walking</button>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
